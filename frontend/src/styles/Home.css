@@ -1,0 +1,126 @@
+.home-container {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+              url("/images/homepage.jpg") no-repeat center center/cover;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 3rem;
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+  max-width: 800px;
+  width: 90%;
+  margin: 2rem auto;
+}
+
+h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  color: #ff9800;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.tagline {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.feature i {
+  font-size: 2rem;
+  color: #ff9800;
+}
+
+.auth-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.btn {
+  /* padding: 12px 28px; */
+  border-radius: 25px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.login-btn {
+  background: #ff9800;
+  color: white;
+}
+
+.signup-btn {
+  background: #ff9800;
+  color: white;
+  border: 2px solid #ff9800;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 152, 0, 0.3);
+}
+
+.login-btn:hover {
+  background: #f57c00;
+  color: #fff;
+}
+
+.signup-btn:hover {
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .features {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .auth-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  .tagline {
+    font-size: 1.2rem;
+  }
+}
+  

@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+.restaurants-container {
+  min-height: 100vh;
+  padding: 2rem;
+  padding-top: 5rem;
+  background: linear-gradient(135deg, #fff8e1, #fff3e0);
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.restaurants-container h1 {
+  text-align: center;
+  color: #e65100;
+  font-size: 2.2rem;
+  margin-bottom: 2.5rem;
+  font-weight: 600;
+}
+
+.add-restaurant-button {
+  display: block;
+  width: 200px;
+  height: 45px;
+  margin: 0 auto 3rem;
+  background: #e65100;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-restaurant-button:hover {
+  background: #ff6f00;
+  transform: translateY(-1px);
+}
+
+.restaurants-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.restaurant-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border: 1px solid #fff3e0;
+}
+
+.restaurant-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.restaurant-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.restaurant-info h2 {
+  color: #e65100;
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.restaurant-info p {
+  margin: 0;
+  color: #424242;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.restaurant-info .description {
+  font-size: 1.1rem;
+  color: #616161;
+  margin-bottom: 0.5rem;
+  line-height: 1.7;
+}
+
+.restaurant-info .address,
+.restaurant-info .district,
+.restaurant-info .phone {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.1rem;
+  color: #616161;
+  padding: 0.5rem 0;
+}
+
+.restaurant-info .address i,
+.restaurant-info .district i,
+.restaurant-info .phone i {
+  color: #e65100;
+  font-size: 1.2rem;
+}
+
+.restaurant-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid #fff3e0;
+}
+
+.restaurant-actions button {
+  width: 100%;
+  height: 45px;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.view-menu-button {
+  background: #e65100;
+  color: white;
+}
+
+.check-orders-button {
+  background: #2e7d32;
+  color: white;
+}
+
+.edit-button {
+  background: #1976d2;
+  color: white;
+}
+
+.restaurant-actions button:hover {
+  transform: translateY(-1px);
+}
+
+.view-menu-button:hover {
+  background: #ff6f00;
+}
+
+.check-orders-button:hover {
+  background: #388e3c;
+}
+
+.edit-button:hover {
+  background: #1565c0;
+}
+
+@media screen and (max-width: 768px) {
+  .restaurants-container {
+    padding: 1rem;
+    padding-top: 4.5rem;
+  }
+
+  .restaurants-grid {
+    grid-template-columns: 1fr;
+    padding: 0.5rem;
+    gap: 1.5rem;
+  }
+
+  .restaurant-card {
+    padding: 1.5rem;
+  }
+
+  .restaurant-info h2 {
+    font-size: 1.6rem;
+  }
+
+  .restaurant-info p {
+    font-size: 1rem;
+  }
+}
+
+.loading {
+  text-align: center;
+  padding: 3rem;
+  color: #e65100;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.error {
+  text-align: center;
+  padding: 1.5rem;
+  color: #d32f2f;
+  background: #ffebee;
+  border-radius: 8px;
+  margin: 2rem;
+  max-width: 600px;
+}
+
+/* Make sure all elements use border-box */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.restaurant-card {
+  animation: fadeIn 0.5s ease-out;
+  animation-fill-mode: both;
+}
+
+.restaurant-card:nth-child(n) {
+  animation-delay: calc(0.1s * n);
+} 

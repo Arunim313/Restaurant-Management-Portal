@@ -1,0 +1,125 @@
+import React, { useState, useEffect } from "react";
+import { useNavigate, useParams, useLocation } from "react-router-dom";
+import "../styles/RestaurantForm.css";
+
+const UpdateRestaurant = () => {
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const { state } = useLocation();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const ownerId = sessionStorage.getItem("customerId");
+
+  const [formData, setFormData] = useState({
+    name: "",
+    description: "",
+    address: "",
+    district: "",
+    phoneNumber: "",
+  });
+
+  useEffect(() => {
+    if (state?.restaurant) {
+      setFormData(state.restaurant);
+    }
+  }, [state]);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+
+    try {
+      const response = await fetch(
+        `http://localhost:8080/api/v1/restaurants/${id}?ownerId=${ownerId}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to update restaurant");
+      }
+
+      navigate(`/restaurants/owner/${ownerId}`);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="restaurant-form-container">
+      <h1>Update Restaurant</h1>
+      {error && <div className="error-message">{error}</div>}
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label>Restaurant Name</label>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label>Description</label>
+          <textarea
+            name="description"
+            value={formData.description}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label>Address</label>
+          <input
+            type="text"
+            name="address"
+            value={formData.address}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label>District</label>
+          <input
+            type="text"
+            name="district"
+            value={formData.district}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label>Phone Number</label>
+          <input
+            type="tel"
+            name="phoneNumber"
+            value={formData.phoneNumber}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <button type="submit" disabled={loading}>
+          {loading ? "Updating..." : "Update Restaurant"}
+        </button>
+      </form>
+    </div>
+  );
+};
+
+export default UpdateRestaurant; 

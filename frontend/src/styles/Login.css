@@ -1,0 +1,285 @@
+/* Reset default styles and ensure full viewport height */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, 
+body, 
+#root {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Container styles with full viewport */
+.login-container {
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("/images/homepage.jpg") no-repeat center center/cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+
+/* Card styles */
+.login-card {
+  width: 100%;
+  max-width: 500px;
+  margin: 2rem;
+  padding: 3rem;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Form styles */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.login-button {
+  width: 100%;
+  padding: 1rem;
+  background: #e65100;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.signup-link {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .login-card {
+    margin: 1rem;
+    padding: 2rem;
+  }
+}
+
+.login-card h1 {
+  color: #e65100;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+.login-card h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: #e65100;
+  border-radius: 2px;
+}
+
+.login-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.signup-link a {
+  color: #e65100;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+.signup-link a:hover {
+  color: #ff6f00;
+  text-decoration: underline;
+}
+
+.error-message {
+  background: rgba(198, 40, 40, 0.1);
+  color: #c62828;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.login-signup-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto;
+}
+
+.login-section,
+.signup-section {
+  padding: 3rem;
+}
+
+.login-section {
+  animation: slideInLeft 0.5s ease-out;
+}
+
+.signup-section {
+  animation: slideInRight 0.5s ease-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.signup-section h2 {
+  color: #e65100;
+  margin-bottom: 1rem;
+  font-size: 2.2rem;
+  text-align: center;
+}
+
+.signup-section p {
+  text-align: center;
+  color: #666;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.signup-benefits {
+  margin: 2rem 0;
+  padding: 2rem;
+  background: rgba(255, 152, 0, 0.1);
+  border-radius: 12px;
+}
+
+.signup-benefits h3 {
+  color: #e65100;
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.signup-benefits ul {
+  list-style: none;
+  padding: 0;
+}
+
+.signup-benefits li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.signup-benefits li i {
+  color: #4caf50;
+  font-size: 1.2rem;
+}
+
+.signup-cta {
+  margin-top: auto;
+  font-size: 1.2rem;
+  padding: 1.2rem 2rem;
+}
+
+@media (max-width: 968px) {
+  .login-signup-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .login-section,
+  .signup-section {
+    padding: 2rem;
+  }
+
+  .signup-benefits {
+    padding: 1.5rem;
+  }
+}
+
+.login-btn {
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.signup-link {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.signup-link span {
+  color: #e65100;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.signup-link span:hover {
+  color: #ff6f00;
+  text-decoration: underline;
+} 
