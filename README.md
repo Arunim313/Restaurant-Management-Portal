@@ -16,6 +16,8 @@ It handles customers, restaurants, food items, orders, and payments.
 
 - PostgreSQL Database
 
+## Demo Video
+[![Watch the video](https://youtu.be/TKguHmWOLRo)](https://youtu.be/TKguHmWOLRo)
 
 
 ## Requests:
