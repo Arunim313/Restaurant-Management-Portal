@@ -17,7 +17,33 @@ It handles customers, restaurants, food items, orders, and payments.
 - PostgreSQL Database
 
 ## Demo Video
+![image](https://github.com/user-attachments/assets/ce586ded-2e03-4e33-99e0-44ffdaaf9eb9)
 [![Watch the video](https://youtu.be/TKguHmWOLRo)](https://youtu.be/TKguHmWOLRo)
+
+## Database Relationships
+
+---
+
+- **Customer** `1 -> 1` **Order**
+  - A customer can place only one order at a time, and each order is linked to exactly one customer.
+
+- **Restaurant** `1 -> *` **Food**
+  - A restaurant can offer many food items, but each food item belongs to exactly one restaurant.
+
+- **Restaurant** `1 -> *` **Order**
+  - A restaurant can receive many orders, but each order is associated with one restaurant.
+
+- **Order** `* -> *` **Food** (via **Order_Food**)
+  - An order can include multiple food items, and a food item can belong to multiple orders (Many-to-Many relationship).
+
+- **Order** `1 -> 1` **Payment**
+  - Each order has exactly one payment record associated with it.
+
+---
+
+### Visual Summary (Entity-Relationship Diagram)
+
+![image](https://github.com/user-attachments/assets/6f57e268-62de-42e9-9905-1ff9e88d5f77)
 
 
 ## Requests:
